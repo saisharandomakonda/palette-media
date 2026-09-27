@@ -3,20 +3,20 @@ import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import appCss from "../styles.css?url";
 
-const APP_NAME = "Glass Kitchen & Bar";
+const APP_NAME = "Ramees Restaurant Kochi";
 
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Glass Kitchen & Bar · Racecourse, Bengaluru" },
+      { title: "Ramees Restaurant · Maradu, Kochi" },
       {
         name: "description",
         content:
-          "A coast apart. Glass Kitchen & Bar at Holiday Inn Bengaluru Racecourse — southern coastal cooking, dinner nightly, lunch Friday to Sunday.",
+          "Ramees at The Whytefort Hotel, Maradu — Kerala roast, Arabic grill and biryani until 11:30 pm. Drag the dining room, then call 075105 66666.",
       },
-      { name: "theme-color", content: "#101614" },
+      { name: "theme-color", content: "#1a1410" },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
@@ -25,7 +25,7 @@ export const Route = createRootRoute({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Sora:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Sans+Malayalam:wght@500;600&family=Outfit:wght@400;500;600&display=swap",
       },
       { rel: "manifest", href: "/__grok/manifest.webmanifest" },
       { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },

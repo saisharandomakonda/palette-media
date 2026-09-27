@@ -1,36 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  --color-night: #101614;
-  --color-pine: #1a2822;
-  --color-mist: #e7e4dc;
-  --color-paper: #f4f1ea;
-  --color-ink: #121816;
-  --color-brass: #b08d57;
-  --color-seal: #6a4e22;
-  --color-muted: #5e675f;
-  --color-line: #d9d3c7;
-  --color-rule: #2c3a32;
+  --color-ink: #1a1410;
+  --color-cream: #f3eadc;
+  --color-chilli: #c4452d;
+  --color-teak: #8d5b36;
+  --color-leaf: #2c4034;
 
-  --font-sans: "Sora", system-ui, sans-serif;
-  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-malayalam: "Noto Sans Malayalam", sans-serif;
 
-  --leading-display: 1.02;
-  --tracking-brand: 0.18em;
+  --leading-display: 0.96;
+  --tracking-brand: 0.16em;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    background: var(--color-night);
-    color: var(--color-mist);
+    background: var(--color-ink);
+    color: var(--color-cream);
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    background: var(--color-night);
-    color: var(--color-mist);
+    background: var(--color-ink);
+    color: var(--color-cream);
     font-family: var(--font-sans);
     overflow-x: clip;
   }
@@ -41,12 +36,12 @@
   }
 
   ::selection {
-    background: var(--color-brass);
-    color: var(--color-ink);
+    background: var(--color-chilli);
+    color: var(--color-cream);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-brass);
+    outline: 2px solid var(--color-chilli);
     outline-offset: 3px;
   }
 
@@ -64,8 +59,9 @@
 @layer components {
   .field {
     width: 100%;
-    border: 1px solid var(--color-line);
-    background: var(--color-paper);
+    min-width: 0;
+    border: 1px solid color-mix(in srgb, var(--color-teak) 55%, transparent);
+    background: var(--color-cream);
     color: var(--color-ink);
     padding: 0.75rem 0.85rem;
     font-size: 1rem;
@@ -73,24 +69,19 @@
   input.field {
     height: 3rem;
   }
-  textarea.field {
-    min-height: 6.5rem;
-  }
 }
 
 @layer utilities {
-  .frame-tall {
-    height: 46svh;
+  .world {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    height: 100svh;
   }
-  @media (min-width: 768px) {
-    .frame-tall {
-      height: 54svh;
-      max-height: 28rem;
-    }
-  }
-  .frame-bar {
-    height: 70svh;
-    max-height: 40rem;
+  .chapter {
+    position: relative;
+    z-index: 1;
+    min-height: 100svh;
   }
   .scrollbar-none {
     scrollbar-width: none;
@@ -98,28 +89,58 @@
   .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
+  .stroke-word {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--color-cream);
+  }
+  .reel-title {
+    font-size: clamp(4.75rem, 16vw, 11rem);
+    line-height: 0.86;
+    letter-spacing: -0.04em;
+  }
+  .tape-track {
+    display: flex;
+    width: max-content;
+    animation: tape 32s linear infinite;
+  }
+  .slam {
+    animation: slam 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
 }
 
-@keyframes rise {
+@keyframes tape {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes slam {
   from {
-    opacity: 0;
-    transform: translateY(8px);
+    clip-path: inset(0 0 100% 0);
   }
   to {
-    opacity: 1;
-    transform: none;
+    clip-path: inset(0);
   }
 }
 
-.rise {
-  animation: rise 420ms ease-out;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .rise {
+  .tape-track,
+  .slam {
     animation: none;
   }
 }

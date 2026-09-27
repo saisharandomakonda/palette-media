@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { GlassPage } from "@/components/glass/glass-page";
+import { RameesPage } from "@/components/ramees/ramees-page";
 
 export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
-  return <GlassPage />;
+  return <RameesPage />;
 }
