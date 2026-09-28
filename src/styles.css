@@ -1,18 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #1a1410;
-  --color-cream: #f3eadc;
-  --color-chilli: #c4452d;
-  --color-teak: #8d5b36;
-  --color-leaf: #2c4034;
+  --color-ink: #141311;
+  --color-paper: #f6f1e8;
+  --color-rust: #8c3a2c;
+  --color-moss: #2f4036;
+  --color-mist: #cfc6b8;
 
   --font-sans: "Outfit", system-ui, sans-serif;
-  --font-display: "Instrument Serif", Georgia, serif;
-  --font-malayalam: "Noto Sans Malayalam", sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
 
-  --leading-display: 0.96;
-  --tracking-brand: 0.16em;
+  --leading-display: 0.92;
+  --tracking-brand: 0.18em;
 }
 
 @layer base {
@@ -60,8 +59,8 @@
   .field {
     width: 100%;
     min-width: 0;
-    border: 1px solid color-mix(in srgb, var(--color-teak) 55%, transparent);
-    background: var(--color-cream);
+    border: 1px solid var(--color-mist);
+    background: var(--color-paper);
     color: var(--color-ink);
     padding: 0.75rem 0.85rem;
     font-size: 1rem;
@@ -93,10 +92,14 @@
     color: transparent;
     -webkit-text-stroke: 2px var(--color-cream);
   }
-  .reel-title {
-    font-size: clamp(4.75rem, 16vw, 11rem);
-    line-height: 0.86;
-    letter-spacing: -0.04em;
+  .mark {
+    font-size: clamp(4.6rem, 18vw, 13.5rem);
+    line-height: 0.78;
+    letter-spacing: -0.045em;
+  }
+  .film {
+    width: min(78vw, 22rem);
+    scroll-snap-align: start;
   }
   .tape-track {
     display: flex;
